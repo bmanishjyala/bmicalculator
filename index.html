@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <title>Ionic React</title>
+</head>
+
+<body>
+    <ion-app >
+        <ion-Header>
+            <ion-toolbar color="primary">
+                <ion-title>
+                    BMI CALCULATOR
+                </ion-title>
+            </ion-toolbar>
+            
+        </ion-Header>
+        
+        <ion-content>
+            
+           <div style="padding: 10px 20px;">
+            <ion-item>
+                <ion-input id="height" type="text" placeholder="Your Height (m)"></ion-input>
+
+            </ion-item>
+
+            <ion-item>
+                <ion-input id="weight" type="text" placeholder="Your Weight(Kg)"></ion-input>
+
+            </ion-item>
+           </div>
+            <div style="text-align: center;">
+                <ion-button color="dark" onclick="bmi()">Calculate</ion-button>
+            </div>
+
+               <div style="text-align: center;">
+                <h1  id="result"> </h1>
+                <h4 id="status"></h4>
+
+               
+               </div>
+            
+    
+        </ion-content>
+
+    </ion-app>
+    
+    <script>
+        function bmi() {
+            const h = document.getElementById("height").value
+            const w = document.getElementById("weight").value
+            const b = parseInt(w) / parseInt(h * h);
+            document.getElementById("result").innerText=b
+            if(b<18.5){
+                document.getElementById("status").innerText="UnderWeight"
+            }
+            else if(b>18.5 && b<24.9){
+                document.getElementById("status").innerText="Normal"
+            }
+            else if(b>24.9 && b<30){
+                document.getElementById("status").innerText="OverWeight"
+            }
+            else if(b>30){
+                document.getElementById("status").innerText="Mar Jayega Choor De Khana"
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
